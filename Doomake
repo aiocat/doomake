@@ -1,3 +1,6 @@
-qwe:
-associatedasd
-associated
+build:
+gcc -std=c99 doomake.c -o doomake
+
+run:
+gcc -std=c99 doomake.c -o doomake
+.\doomake.exe
