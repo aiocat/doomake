@@ -1,3 +1,17 @@
+/*
+ * Doomake is a simple <50 line Makefile (like) clone written in C.
+ *
+ * https://github.com/aiocat/doomake
+ *
+ * Licensed under MIT License
+ * 
+ * For more information, please check:
+ * https://github.com/aiocat/doomake/blob/main/LICENSE
+ * 
+ * Copyright (C) 2022, aiocat <aiocat@protonmail.com>
+ *
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -16,8 +30,8 @@ int main(int argc, char **argv)
     }
 
     const char *command = argv[1]; // get first argument
-    FILE *filePointer; // file pointer
     char line[1025]; // line buffer
+    FILE *filePointer; // file pointer
 
     filePointer = fopen("Doomake", "r"); // open doomake file in read mode
     if (filePointer == NULL) { // check if file exists
