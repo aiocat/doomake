@@ -29,13 +29,23 @@ int main(int argc, char **argv) {
     int collect = 0; // collect value
     const char* command = argv[1]; // get first argument
     char line[1025], commandName[256]; // line buffer and command name format
-    FILE *filePointer; // file pointer
+    FILE *filePointer = fopen("Doomake", "r"); // open doomake file in read mode
 
-    filePointer = fopen("Doomake", "r"); // open doomake file in read mode
     if (filePointer == NULL) return write_error("Can't find Doomake file"); // check if file exists
 
-    strcpy(commandName, command);
-    strcat(commandName, ":\n");
+    // copy string
+    int i;
+    for (i = 0; command[i] != '\0'; i++) {
+        commandName[i] = command[i];
+    }
+
+    // concat string 
+    const char* add = ":\n"; // the string will be added
+    for (int j = 0; add[j] != '\0'; j++) {
+        commandName[i++] = add[j];
+    }
+
+    commandName[i] = '\0'; // null terminate
 
     while (fgets(line, sizeof(line), filePointer)) { // read line-by-line
         if (collect) { // if collect
